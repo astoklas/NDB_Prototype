@@ -75,13 +75,14 @@ ns0_roleConfig = {
     'level': '',                        # (string, optional)
 }
 
-etherType_IP = '0x0800'
-protocol_tcp = '6'
-protocol_udp = '17'
+etherType_IP = "0x0800"
+protocol_tcp = "6"
+protocol_udp = "17"
 
-deviceConfig = ns0_deviceConfig.copy()
-deviceConfig['creatorRole'] = "Test2"
-
-print deviceConfig
-print json.dumps(deviceConfig)
+filter = ns0_matchConfig.copy()
+filter['protocol'] = protocol_tcp
+filter['etherType'] = etherType_IP
+filter['transportPortSrc'] = "80"
+filter['name'] = "hello_from_python"
+print json.dumps(filter)
 

@@ -22,3 +22,4 @@ user_input = input("Press Enter to Delete filter: ")
 print("Delete FILTER")
 response = requests.request("DELETE", url, headers=headers, verify=False)
 print(response.text)
+
