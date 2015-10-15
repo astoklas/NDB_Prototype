@@ -16,10 +16,14 @@ headers = {
 
 print("Create FILTER")
 response = requests.request("PUT", url, data=payload, headers=headers, verify=False)
+if r.status_code != requests.codes.ok:
+    exit(1)
 print(response.text)
 
 user_input = input("Press Enter to Delete filter: ")
 print("Delete FILTER")
 response = requests.request("DELETE", url, headers=headers, verify=False)
-print(response.text)
+if r.status_code != requests.codes.ok:
+    exit(1)
 
+print(response.text)
