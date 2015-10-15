@@ -17,7 +17,7 @@ headers = {
 print("Create FILTER")
 response = requests.request("PUT", url, data=payload, headers=headers, verify=False)
 print(response.text)
-if r.status_code != requests.codes.ok:
+if response.status_code != 201:
     print("Something went wrong ... no time to fix this just exit")
     exit(1)
 
@@ -26,6 +26,6 @@ print("Delete FILTER")
 response = requests.request("DELETE", url, headers=headers, verify=False)
 
 print(response.text)
-if r.status_code != requests.codes.ok:
+if response.status_code != 204:
     print("Something went wrong ... no time to fix this just exit")
     exit(1)
