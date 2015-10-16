@@ -1,6 +1,16 @@
 __author__ = 'astoklas'
 
 import hashlib
+import requests
+
+nam_server = "10.19.0.102:80"
+auth_url = "http://%s/auth/login.php?api=true" % nam_server
+
+headers = {
+    'content-type': "application/json",
+    'cache-control': "no-cache",
+    }
+
 
 def encodeMD5(string):
     m = hashlib.md5()
@@ -13,7 +23,10 @@ def encodePassword(username=None, password=None, domain=None, nonce=None, pkey=N
     else:
         return None
 
-print(encodePassword(b"admin",b"admin",b"",b"aaaa"))
+print(auth_url)
+response = requests.request("GET", auth_url, data=None, headers=headers, verify=False)
+print(response.text)
+print(encodePassword("admin","Qwertz1234","","aaaa"))
 
 
 
