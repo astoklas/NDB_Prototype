@@ -121,10 +121,14 @@ def createCapture(nam_server, sessid, captureName="rest", sliceSize="500"):
     print(response.status_code)
     print(response.text)
 
-def startCapture:
+def startCapture():
     return None
 
-def stopCapture:
+def stopCapture():
+    return None
+
+def deleteCapture(captureID):
+    url = "/nbi/nbi-capture/session/id/%s" % captureID
     return None
 
 nam_server = "10.19.0.102:80"
